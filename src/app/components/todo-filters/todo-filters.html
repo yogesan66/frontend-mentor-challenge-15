@@ -1,0 +1,22 @@
+<div class="flex gap-4" *ngIf="selectedFilter$ | async as filter">
+  <span
+    class="cursor-pointer duration-200"
+    [ngClass]="{'text-blue-500': filter === all, 'dark:hover:text-dark-purple300 hover:text-light-navy850': filter != all}"
+    (click)="changeFilter(all)"
+    >All</span
+  >
+  <span
+    class="dark:hover:text-dark-purple300 cursor-pointer duration-200"
+    [ngClass]="{'text-blue-500': filter === active,  'dark:hover:text-dark-purple300 hover:text-light-navy850': filter != active}"
+    (click)="changeFilter(active)"
+  >
+    Active</span
+  >
+  <span
+    class="dark:hover:text-dark-purple300 cursor-pointer duration-200"
+    [ngClass]="{'text-blue-500': filter === done,  'dark:hover:text-dark-purple300 hover:text-light-navy850': filter != done}"
+    (click)="changeFilter(done)"
+  >
+    Completed</span
+  >
+</div>

@@ -1,0 +1,15 @@
+<div
+  class="flex shadow-lg gap-6 items-center bg-white dark:bg-dark-navy900 rounded-md py-5 px-6"
+>
+  <app-checkbox
+    [selected]="selected"
+    (clickEvent)="selected = !selected"
+  ></app-checkbox>
+  <input
+    type="text"
+    (keydown)="addItem($event)"
+    [(ngModel)]="task"
+    placeholder="Create a new todo..."
+    class="dark:text-dark-purple300 text-light-navy850 font-sans bg-transparent outline-none w-full text-sm md:text-xl caret-blue-500"
+  />
+</div>

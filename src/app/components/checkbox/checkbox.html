@@ -1,0 +1,12 @@
+<div
+  class="p-[1px] select-none cursor-pointer relative rounded-full hover:[background-image:linear-gradient(130deg,_hsl(192,100%,67%),_hsl(280,87%,65%))]"
+  [ngClass]="{'[background-image:linear-gradient(130deg,_hsl(192,100%,67%),_hsl(280,87%,65%))]': selected}"
+>
+  <div
+    (click)="onClick()"
+    class="w-6 h-6 rounded-full border-[0.1rem] hover:border-0 dark:bg-dark-navy900 bg-white"
+    [ngClass]="{'flex border-none justify-center items-center [background-image:linear-gradient(130deg,_hsl(192,100%,67%),_hsl(280,87%,65%))] pt-0.5 pl-0.5': selected, 'dark:border-dark-purple800': !selected}"
+  >
+    <img src="assets/images/icon-check.svg" *ngIf="selected" />
+  </div>
+</div>

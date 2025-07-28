@@ -1,0 +1,32 @@
+<div class="mt-6 shadow-lg rounded-b-md">
+  <div cdkDropList [cdkDropListData]="list" (cdkDropListDropped)="drop($event)">
+    <app-todo-item
+      *ngFor="let x of list; let i = index;trackBy: trackById"
+      cdkDrag
+      [customClass]="i === 0  ? 'rounded-t-md' : ''"
+      [title]="x.title"
+      [completed]="x.completed"
+      (clickEvent)="changeTaskStatus(x.id, !x.completed)"
+      (deleteEvent)="deleteItem(x.id)"
+    ></app-todo-item>
+  </div>
+
+  <div
+    *ngIf="list.length === 0"
+    class="text-sm md:text-base text-light-navy850 bg-white flex border-b-[0.1rem] dark:text-dark-purple300 justify-center rounded-t-md dark:border-dark-purple600/50 items-center dark:bg-dark-navy900 py-5 px-6 duration-200"
+  >
+    <p>No tasks available</p>
+  </div>
+
+  <div
+    class="text-light-gray600 bg-white flex rounded-b-md font-bold justify-between dark:text-dark-purple600 dark:bg-dark-navy900 text-sm px-6 py-4"
+  >
+    <span> {{balanceItems}} items left</span>
+    <app-todo-filters class="hidden sm:block"></app-todo-filters>
+    <span
+      class="dark:hover:text-dark-purple300 hover:text-light-navy850 cursor-pointer duration-200"
+      (click)="clearAll()"
+      >Clear completed</span
+    >
+  </div>
+</div>

@@ -1,0 +1,22 @@
+<div
+  class="flex border-b-[0.1rem] bg-white dark:border-dark-purple600/50 cursor-pointer group justify-between items-center dark:bg-dark-navy900 py-5 px-6 duration-200"
+  [ngClass]="customClass"
+>
+  <div class="flex gap-6 items-center">
+    <app-checkbox
+      [selected]="completed"
+      (clickEvent)="onClick()"
+    ></app-checkbox>
+    <p
+      class="max-w-56 md:max-w-md text-ellipsis overflow-hidden truncate text-sm md:text-base"
+      [ngClass]="{'line-through dark:text-dark-purple600 text-light-gray300': completed, 'dark:text-dark-purple300 text-light-navy850': !completed}"
+    >
+      {{title}}
+    </p>
+  </div>
+  <img
+    src="assets/images/icon-cross.svg"
+    class="hidden group-hover:block"
+    (click)="deleteClicked()"
+  />
+</div>
