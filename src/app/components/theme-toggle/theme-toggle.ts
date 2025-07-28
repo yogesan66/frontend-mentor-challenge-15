@@ -8,20 +8,20 @@ import { Component, OnInit } from '@angular/core';
   styleUrl: './theme-toggle.scss',
 })
 export class ThemeToggle implements OnInit {
-  isDarkMode: boolean = false;
+  isLightMode: boolean = false;
 
   ngOnInit(): void {
     this.setMode();
   }
 
-  changeDarkMode(value: boolean): void {
-    localStorage.setItem('dark', value.toString());
+  isLightModeOn(value: boolean): void {
+    localStorage.setItem('lightMode', value.toString());
     this.setMode();
   }
 
   setMode(): void {
-    let dark = localStorage.getItem('dark');
-    this.isDarkMode = dark === 'true';
-    document.documentElement.classList.toggle('dark', this.isDarkMode);
+    let mode = localStorage.getItem('lightMode');
+    this.isLightMode = mode === 'true';
+    document.documentElement.classList.toggle('dark', !this.isLightMode);
   }
 }

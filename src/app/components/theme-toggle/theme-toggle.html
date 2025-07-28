@@ -1,12 +1,14 @@
 <div class="cursor-pointer">
   <img
     src="assets/images/icon-sun.svg"
-    *ngIf="isDarkMode"
-    (click)="changeDarkMode(false)"
+    alt="icon-sun"
+    *ngIf="!isLightMode"
+    (click)="isLightModeOn(true)"
   />
   <img
     src="assets/images/icon-moon.svg"
-    *ngIf="!isDarkMode"
-    (click)="changeDarkMode(true)"
+    alt="icon-moon"
+    *ngIf="isLightMode"
+    (click)="isLightModeOn(false)"
   />
 </div>
